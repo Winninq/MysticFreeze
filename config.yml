@@ -1,0 +1,82 @@
+######################################################
+#                                                    #
+#        ╔╦╗╦ ╦╔═╗╔╦╗╦╔═╗  ╔═╗╦═╗╔═╗╔═╗╔═╗╔═╗        #
+#        ║║║╚╦╝╚═╗ ║ ║║    ╠╣ ╠╦╝║╣ ║╣ ╔═╝║╣         #
+#        ╩ ╩ ╩ ╚═╝ ╩ ╩╚═╝  ╚  ╩╚═╚═╝╚═╝╚═╝╚═╝        #
+#                  Made by Ankh                      #
+#                                                    #
+#  This is my first plugin, so it may have bugs. If  #
+#   you happen to find one, please report it here:   #
+#           https://discord.gg/bU9ThrA               #
+#                                                    #
+######################################################
+
+# Chat Message Feature. Currently the only working option.
+chat-options:
+  enabled: true
+  # Sets the frozen message interval, delay is measured in seconds.
+  # This value must be an Integer (whole number).
+  message-interval: 3
+  # Message that is sent to the player on the interval set above.
+  frozen-message: '&cYou were frozen by {staff}!'
+
+# Chest GUI feature. This currently does nothing as the GUI is
+# still a work in progress. It will be added in a future update.
+gui-options:
+  enabled: false
+  menu:
+    item1:
+      id: 1
+      name: '&c&lFrozen!'
+      lore:
+      - '&6Supports color codes'
+      - 'Line2'
+      - 'Also supports {staff}!'
+      slots:
+      - 0
+
+# This is where you change the messages for commands and features.
+# If you want to disable a message, set it to ''
+# {player} displays the username of the player that is affected.
+# {staff} displays the username of the player running the commands.
+# These will only work in the messages they are shown in on the default config.
+messages:
+  # Prefix that appears before all freeze command messages.
+  prefix: '&8[&bFreeze&8] &f'
+  # Message that is sent to the player once they are un-frozen.
+  unfrozen-message: '&aYou were unfrozen by {staff}!'
+  # This is sent to the frozen player when they try to do something while frozen.
+  deny-message: '&cYou cannot do that while frozen!'
+  # This message is sent to a player when they attempt to attack a frozen player.
+  attack-frozen: '&cYou cannot attack {player}, they are frozen!'
+  # Sends a message to everyone with 'freeze.notify' when a player disconnects while frozen.
+  frozen-leave: '&c&l{player} logged out while frozen!'
+  # Messages for the /freeze command.
+  freeze-command:
+    success: '&a{player} was frozen!'
+    no-args: '&cUsage: /freeze <player>'
+    too-many-args: '&cToo Many Arguments!'
+    player-not-found: '&cThere is no user online called {player}!'
+    already-frozen: '&c{player} is already frozen!'
+    player-exempt: '&cYou cannot freeze {player}!'
+    no-permission: '&cYou don''t have permission to use the freeze command!'
+  # Messages for the /unfreeze command.
+  unfreeze-command:
+    success: '&a{player} was un-frozen!'
+    no-args: '&cUsage: /unfreeze <player>'
+    too-many-args: '&cToo Many Arguments!'
+    player-not-found: '&cThere is no user online called {player}!'
+    not-frozen: '&c{player} is not frozen!'
+    no-permission: '&cYou don''t have permission to use the unfreeze command!'
+  # Messages for the /freload command.
+  reload-command:
+    success: '&cPlugin configuration reloaded.'
+    no-permission: '&cYou don''t have permission to use the freload command!'
+  notify:
+    # These messages are shown to players with the 'freeze.notify' when a player is frozen or un-frozen.
+    player-frozen: '&c{player} was frozen by {staff}.'
+    player-unfrozen: '&c{player} was un-frozen by {staff}.'
+    # Shown to players with 'freeze.reload.notify' when /freload is used.
+    # This message will only appear if there are frozen players on reload.
+    # When /freload is used, all frozen players are un-frozen.
+    reload: '&cAll players un-frozen due to reload by {staff}.'
