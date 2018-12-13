@@ -11,7 +11,7 @@
 #                                                    #
 ######################################################
 
-# Chat Message Feature. Currently the only working option.
+# Chat Message Feature. Enabled by default.
 chat-options:
   enabled: true
   # Sets the frozen message interval, delay is measured in seconds.
@@ -20,20 +20,43 @@ chat-options:
   # Message that is sent to the player on the interval set above.
   frozen-message: '&cYou were frozen by {staff}!'
 
-# Chest GUI feature. This currently does nothing as the GUI is
-# still a work in progress. It will be added in a future update.
+# Chest GUI option. You can enable both GUI and Chat options if you so choose.
 gui-options:
   enabled: false
-  menu:
+  # This is where you set up how many rows, or slots, the menu will have. Each row is 9 item slots.
+  # This must be a number between 1-9
+  rows: 3
+  # This sets the GUI menu header.
+  menu-title: '&9Frozen!'
+  # This is where you set up the items that appear in the inventory menu displayed to a player when frozen.
+  # WARNING: Please keep in mind no two items should have the same name.
+  items:
     item1:
-      id: 1
-      name: '&c&lFrozen!'
-      lore:
-      - '&6Supports color codes'
-      - 'Line2'
-      - 'Also supports {staff}!'
+      # You must use the minecraft material name for this option.
+      # Example below.
+      # material: 'golden_shovel'
+      # WARNING: Item names may vary from version to version.
+      material: 'stone'
+      damage: 0
+      amount: 1
       slots:
-      - 0
+      - 13
+      name: '&cFrozen!'
+      lore:
+      - '&cYou were frozen!'
+    item2:
+      material: 'stained_glass_pane'
+      damage: 1
+      amount: 16
+      slots:
+       - 12
+       - 14
+      name: 'Item 2'
+      lore:
+      - '&6Color Codes Supported!'
+      - 'Line2'
+     
+# If neither option is enabled, players will still be frozen but it will not say anything to them.
 
 # This is where you change the messages for commands and features.
 # If you want to disable a message, set it to ''
